@@ -1,3 +1,14 @@
+createdb books_app
+
+create table books (
+book_id serial primary key,
+author varchar(225) not null,
+title varchar(225) not null,
+isbn varchar(255),
+image_url text,
+description text
+);
+
 insert into books(author, title, isbn, image_url, description)
 values(
       'Patrick Rothfuss',
