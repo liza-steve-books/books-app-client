@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Document</title>
+    <title>Bookstore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+
+    <!-- Book Handlebars Template -->
     <script id="book-template" type="text/x-handlebars-template">
       <article data-author="{{author}}">
         <h2>{{title}}</h2>
@@ -14,12 +22,29 @@
     </script>
   </head>
   <body>
-    <h1>Books!</h1>
-    <section class="books">
+    <h1>Bookstore Stats</h1>
+    <section id="book-section" class="tab-content">
+      <dt>Total books:</dt> <dd class="book-count"></dd>
+      <!-- All books go here -->
+      <section id="books"></section>
     </section>
+    <section id="about" class="tab-content">
+        <header>
+          Welcome to the Bookstore
+        </header>
+        <section>
+          <h1>Some of our interests:</h1>
+          <ul>
+            <li>Coding</li>
+            <li>Sharing what I've learned</li>
+            <li>Hanging with my family</li>
+          </ul>
+        </section>
+      </section>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script src="scripts/views/book-view.js"></script>
   <script src="scripts/views/error-view.js"></script>
+  <script>app.bookView.initIndexPage();</script>
 </html>
