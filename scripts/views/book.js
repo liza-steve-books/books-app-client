@@ -1,107 +1,80 @@
 'use strict';
 
-/************* article.js below **********/
-
 var app = app || {};
 
 (function (module){
+  //__API_URL__ = 'https://ag-sh-booklist.herokuapp.com';
+  __API_URL__ = 'http://localhost:3000';
 
-  function Article(rawDataObj) {
-  // REVIEW: In Lab 8, we explored a lot of new functionality going on here. Let's re-examine the concept of context. Normally, "this" inside of a constructor function refers to the newly instantiated object. However, in the function we're passing to forEach, "this" would normally refer to "undefined" in strict mode. As a result, we had to pass a second argument to forEach to make sure our "this" was still referring to our instantiated object. One of the primary purposes of lexical arrow functions, besides cleaning up syntax to use fewer lines of code, is to also preserve context. That means that when you declare a function using lexical arrows, "this" inside the function will still be the same "this" as it was outside the function. As a result, we no longer have to pass in the optional "this" argument to forEach!
-    Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
+  function Book(rawDataObj) {
+      Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
-
-  Article.all = [];
-
-  Article.prototype.toHtml = function() {
-    var template = Handlebars.compile($('#article-template').text());
-
-    this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
-    this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
-    this.body = marked(this.body);
+  
+  Book.all = [];
+  
+  Book.prototype.toHtml = function() {
+    var template = Handlebars.compile($('#book-template').text());
 
     return template(this);
   };
 
-  Article.loadAll = rawData => {
-    rawData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
-
-    Article.all = rawData.map(ele => new Article(ele));
-
+  Book.loadAll = rawData => {
+    Book.all = rawData.map(ele => new Book(ele));
   };
 
-  Article.fetchAll = callback => {
-    $.get('/articles')
+  Book.fetchAll = callback => {
+    $.get('/api/v1/books')
       .then(results => {
-        Article.loadAll(results);
+        Book.loadAll(results);
         callback();
       })
   };
 
-  Article.numWordsAll = () => {
-    return Article.all.map(article => article.body.split(' ').length).reduce((acc, cur) => acc + cur);
-  };
+  Book.prototype.insertRecord = function(callback) {
+      $.post('/api/v1/books', {author: this.author, title: this.title, isbn: this.isbn, image_url: this.image_url, description: this.description})
+        .then(console.log)
+        .then(callback);
+    };
 
-  Article.allAuthors = () => {
-    return Article.all.map(article => article.author).reduce((acc, cur) => {
-      if (!acc.includes(cur)) {
-        acc.push(cur);
-      }
-      return acc;
-    }, []);
-  };
+  //Maybe later?
+  // Book.truncateTable = callback => {
+  //   $.ajax({
+  //     url: '/api/v1/books',
+  //     method: 'DELETE',
+  //   })
+  //     .then(console.log)
+  //     .then(callback);
+  // };
 
-  Article.numWordsByAuthor = () => {
-    return Article.allAuthors().map(author => {
-      let obj = {};
-      obj.author = author;
-      obj.words = Article.all.filter(article => article.author === obj.author).map(article => article.body.split(' ').length).reduce((acc, cur) => acc + cur);
-      return obj;
-    });
-  };
+  // Maybe later?  
+  // Book.prototype.updateRecord = function(callback) {
+  //   $.ajax({
+  //     url: `/api/v1/books/${this.article_id}`,
+  //     method: 'PUT',
+  //     data: {
+  //       author: this.author,
+  //       authorUrl: this.authorUrl,
+  //       body: this.body,
+  //       category: this.category,
+  //       publishedOn: this.publishedOn,
+  //       title: this.title,
+  //       author_id: this.author_id
+  //     }
+  //   })
+  //     .then(console.log)
+  //     .then(callback);
+  // };
 
-  Article.truncateTable = callback => {
-    $.ajax({
-      url: '/articles',
-      method: 'DELETE',
-    })
-      .then(console.log)
-    // REVIEW: Check out this clean syntax for just passing 'assumed' data into a named function! The reason we can do this has to do with the way Promise.prototype.then() works. It's a little outside the scope of 301 material, but feel free to research!
-      .then(callback);
-  };
+  // Maybe later?
+  // Book.prototype.deleteRecord = function(callback) {
+  //   $.ajax({
+  //     url: `/api/v1/books/${this.book_id}`,
+  //     method: 'DELETE'
+  //   })
+  //     .then(console.log)
+  //     .then(callback);
+  // };
 
-  Article.prototype.insertRecord = function(callback) {
-  // REVIEW: Why can't we use an arrow function here for .insertRecord()?
-    $.post('/articles', {author: this.author, authorUrl: this.authorUrl, body: this.body, category: this.category, publishedOn: this.publishedOn, title: this.title})
-      .then(console.log)
-      .then(callback);
-  };
 
-  Article.prototype.deleteRecord = function(callback) {
-    $.ajax({
-      url: `/articles/${this.article_id}`,
-      method: 'DELETE'
-    })
-      .then(console.log)
-      .then(callback);
-  };
-
-  Article.prototype.updateRecord = function(callback) {
-    $.ajax({
-      url: `/articles/${this.article_id}`,
-      method: 'PUT',
-      data: {
-        author: this.author,
-        authorUrl: this.authorUrl,
-        body: this.body,
-        category: this.category,
-        publishedOn: this.publishedOn,
-        title: this.title,
-        author_id: this.author_id
-      }
-    })
-      .then(console.log)
-      .then(callback);
-  };
-  module.Article=Article
+  module.Book=Book;
 })(app);
