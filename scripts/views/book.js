@@ -3,15 +3,20 @@
 var app = app || {};
 
 (function (module){
-  //__API_URL__ = 'https://ag-sh-booklist.herokuapp.com';
-  __API_URL__ = 'http://localhost:3000';
+  //var __API_URL__ = 'https://ag-sh-booklist.herokuapp.com';
+  var __API_URL__ = 'http://localhost:3000';
 
   function Book(rawDataObj) {
       Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
-  
+
+  function errorCallback(err) {
+    console.error(err);
+    module.errorView.initErrorPage(err);
+  }
+
   Book.all = [];
-  
+
   Book.prototype.toHtml = function() {
     var template = Handlebars.compile($('#book-template').text());
 
@@ -23,7 +28,7 @@ var app = app || {};
   };
 
   Book.fetchAll = callback => {
-    $.get('/api/v1/books')
+    $.get(`${__API_URL__}/api/v1/books`)
       .then(results => {
         Book.loadAll(results);
         callback();
@@ -74,7 +79,6 @@ var app = app || {};
   //     .then(console.log)
   //     .then(callback);
   // };
-
 
   module.Book=Book;
 })(app);
