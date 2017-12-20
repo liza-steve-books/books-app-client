@@ -7,7 +7,7 @@ var app = app || {};
   var __API_URL__ = 'http://localhost:3000';
 
   function Book(rawDataObj) {
-      Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
+    Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
 
   function errorCallback(err) {

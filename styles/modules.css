@@ -1,83 +1,68 @@
-.site-header {
-  background: #FFEAAA;
+.container {
+  margin-top: 20%;
 }
 
-.heading-group-h1 {
-  float: left;
-  padding: 0 0 .2em 1em;
+.view-title {
+  width: 50%;
+  margin: 0 auto;
 }
 
-.icon-menu {
-  font-size: 3em;
-  float: right;
+.book-container {
+  width: 50%;
+  margin: 0 auto;
 }
 
-.main-nav {
-  padding: 0.1em;
+.book-container img {
+  min-width: 100%;
 }
 
-.main-nav ul {
-  display: none;
-  padding: 0;
-  list-style: none;
-  clear: both;
+.book-items {
+  position: relative;
+  width: 100%;
+  margin-top:3.5vw;
 }
 
-.main-nav:hover ul {
+.book-overlay {
+  background: rgba(120, 120, 120, 0.75);
   display: block;
+  width: inherit;
+  height: 30%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
-.main-nav li {
-  margin-right: .4em;
-  font-size: 1.5em;
-  padding: .5em .2em;
-  border-bottom: 1px solid #ccc;
+.book-overlay * {
+  text-transform: capitalize;
+  text-align: center;
+  padding: 2vw;
 }
 
-#filters {
-  padding: 0;
-  list-style: none;
+.social-links ul {
+  width: 75%;  
+  position: absolute;
+  right: 0;
 }
 
-.template {
-  display: none;
+.social-links li {
+  display: inline-block;
+  margin: 2vw 0;
+  margin-right: 5%;
 }
 
-.byline {
-  color: #777;
+#error-message {
+  width: 50%;
+  margin: 2vw auto;
+  line-height: 8vw;
 }
 
-.byline a {
-  font-weight: bold;
-  text-decoration: none;
+#error-message h3 {
+  font-size: 5vw;
 }
 
-#article-export label {
-  font-size: .8em;
-  font-style: italic;
-  color: #ccc;
-}
-
-@media only screen and (min-width: 640px) {
-  .icon-menu {
-    display: none;
-  }
-
-  .main-nav {
-    padding: .2em .2em .2em 2em;
-  }
-
-  .main-nav ul {
-    display: block;
-  }
-
-  .main-nav ul li {
-    display: inline;
-    border-bottom: none;
-  }
-
-  .main-nav ul li:hover a {
-    color: #29506D;
-  }
-
+#error-message p {
+  font-size: 3vw;
+  color: #d13227;
 }
