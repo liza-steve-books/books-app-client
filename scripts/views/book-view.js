@@ -22,10 +22,10 @@ var app = app || {};
   };
 
   bookView.setDetails = () => {
-    $('.book-item').on('click','button.detail' , function(e){
-      e.preventDefault();
-    }
-  )
+    $('.book-item').on('click','button.detail' , function(){
+      let id = $(this).attr('data-bookid');
+      console.log(id);
+    });
   };
 
   module.bookView=bookView;
