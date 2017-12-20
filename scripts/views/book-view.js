@@ -17,6 +17,15 @@ var app = app || {};
 
     // Append all books to index.html
     app.Book.all.forEach(book => $('#book-list').append(book.toHtml()));
+
+    bookView.setDetails();
+  };
+
+  bookView.setDetails = () => {
+    $('.book-item').on('click','button.detail' , function(){
+      let id = $(this).attr('data-bookid');
+      console.log(id);
+    });
   };
 
   module.bookView=bookView;

@@ -15,15 +15,24 @@
     </script>
     <!-- Book Handlebars Template -->
     <script id="book-template" type="text/x-handlebars-template">
-      <li class="book-item" data-bookid="{{book_id}}">
+      <li class="book-item">
         <div class="book-container">
           <img src={{image_url}}>
           <div>
             <h2>{{title}}</h2>
             <p>{{author}}</p>
+            <button class="detail" data-bookid="{{book_id}}">Details</button>
           </div>
         </div>
       </li>
+    </script>
+    <!-- Details Handlebars Template -->
+    <script id="details-template" type="text/x-handlebars-template">
+      <h2>{{title}}</h2>
+      <p>{{author}}</p>
+      <p>{{isbn}}</p>
+      <img href="{{image_url">
+      <p>{{description}}</p>
     </script>
   </head>
   <body>
@@ -49,6 +58,8 @@
           <ul id="book-list"></ul>
         </section>
       </section>
+      <section class="detail-view container">
+      </section>
     </main>
     <footer>
       <aside class="social-links">
@@ -62,10 +73,12 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <!-- App Resources -->
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/views/view.js"></script>
+    <script src="scripts/views/routesw.js"></script>
   </body>
 </html>
