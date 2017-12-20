@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/liza-steve-books/books-app-client/issues"
   },
-  "homepage": "https://github.com/liza-steve-books/books-app-client#readme"
+  "homepage": "https://github.com/liza-steve-books/books-app-client#readme",
+  "dependencies": {
+    "page": "^1.7.1"
+  }
 }
