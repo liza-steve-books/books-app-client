@@ -3,8 +3,8 @@
 var app = app || {};
 
 (function (module){
-  var __API_URL__ = 'https://lo-sc-booklist.herokuapp.com';
-  // var __API_URL__ = 'http://localhost:3000';
+  //var __API_URL__ = 'https://lo-sc-booklist.herokuapp.com';
+  var __API_URL__ = 'http://localhost:3000';
   Book.all = [];
 
   function Book(rawDataObj) {
@@ -37,6 +37,16 @@ var app = app || {};
       .then(callback)
       .catch(errorCallback);
   };
+
+  //Book.fetchOne = callback => {
+    // Make the api call, then cascade return values into all the
+    // .then calls as arguments. The .catch function will only be
+    // called in the event of an error.
+  //   $.get(`${__API_URL__}/api/v1/books`)
+  //     .then(Book.loadAll)
+  //     .then(callback)
+  //     .catch(errorCallback);
+  // };
 
   module.Book=Book;
 })(app);
