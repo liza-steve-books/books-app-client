@@ -1,79 +1,26 @@
-img {
-  max-width: 100%;
-}
-
 body {
-  line-height: 1.5;
-  font-size: 100%;
-  color: #313131;
+  background-color: #999;
+  font-family: 'helvetica';
+  color: #ddd;
+  width: 100%;
+  position: relative;
 }
 
 main {
-  margin: 0 20px;
+  max-width: 100%;
+  margin: 1vw auto;
 }
 
-hr {
-  margin: 1em;
-  width: 80%;
-}
-
-/*TEXT STYLES
-=======================================*/
-p {
-  font-size: 1em;
-}
-
-address {
-  display: inline-block;
-}
-
-/*LINK STYLES
-=======================================*/
-
-a, a:link, a:active {
-  text-decoration: none;
-  color: #777;
-}
-
-a:hover, a:focus {
-  color: #29506D;
-}
-
-a:visited {
-}
-
-/*FORM STYLES
-=======================================*/
-label {
-  font-size: 3em;
-}
-
-input {
+header {
+  position: fixed;
+  z-index: 99;
+  background-color: #444;
+  padding: 1.5vw 0;
   width: 100%;
-  margin: .5em 0;
-  border: 1px solid #ccc;
-  border-width: 0 0 1px 0;
-  border-radius: 0;
+  top: 0;
 }
 
-input[type="checkbox"] {
-  width: .28em;
-  height: .28em;
-  font-size: 3em;
-}
-
-textarea {
+footer {
   width: 100%;
-  margin: .5em 0;
-  font-size: 2em;
-  border: 1px solid #ccc;
-  border-radius: 0;
-}
-
-input:invalid, textarea:invalid {
-  border-color: #AE3F3C;
-}
-
-input:valid, textarea:valid {
-  border-color: #89CB8E;
+  background-color: #444;
 }
