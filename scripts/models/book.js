@@ -11,10 +11,10 @@ var app = app || {};
     Object.keys(rawDataObj).map(key => this[key] = rawDataObj[key]);
   }
 
-  errorCallback = (err) => {
+  function errorCallback(err) {
     console.error(err);
     module.errorView.initErrorPage(err);
-  };
+  }
 
   Book.prototype.toHtml = function() {
     var template = Handlebars.compile($('#book-template').text());
