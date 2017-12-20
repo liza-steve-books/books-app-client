@@ -26,6 +26,14 @@
         </div>
       </li>
     </script>
+    <!-- Details Handlebars Template -->
+    <script id="details-template" type="text/x-handlebars-template">
+      <h2>{{title}}</h2>
+      <p>{{author}}</p>
+      <p>{{isbn}}</p>
+      <img href="{{image_url">
+      <p>{{description}}</p>
+    </script>
   </head>
   <body>
     <!-- Header -->
@@ -50,6 +58,8 @@
           <ul id="book-list"></ul>
         </section>
       </section>
+      <section class="detail-view container">
+      </section>
     </main>
     <footer>
       <aside class="social-links">
@@ -68,5 +78,7 @@
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/views/view.js"></script>
+    <script src="scripts/views/routesw.js"></script>
   </body>
 </html>
