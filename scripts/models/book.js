@@ -38,15 +38,12 @@ var app = app || {};
       .catch(errorCallback);
   };
 
-  //Book.fetchOne = callback => {
-    // Make the api call, then cascade return values into all the
-    // .then calls as arguments. The .catch function will only be
-    // called in the event of an error.
-  //   $.get(`${__API_URL__}/api/v1/books`)
-  //     .then(Book.loadAll)
-  //     .then(callback)
-  //     .catch(errorCallback);
-  // };
-
+  Book.fetchOne = (book_id, callback) => {
+    $.get(`${__API_URL__}/api/v1/books/${book_id}`)
+      .then()
+      .then(callback)
+      .catch(errorCallback);
+  };
+  //$.get('http://localhost:3000/api/v1/books/9').then(console.log).catch(console.error)
   module.Book=Book;
 })(app);
