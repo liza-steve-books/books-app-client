@@ -16,8 +16,8 @@ var app = app || {};
     module.errorView.initErrorPage(err);
   }
 
-  Book.prototype.toHtml = function() {
-    var template = Handlebars.compile($('#book-template').text());
+  Book.prototype.toHtml = function(templateSelector) {
+    var template = Handlebars.compile($(templateSelector).text());
     return template(this);
   };
 
@@ -40,7 +40,7 @@ var app = app || {};
 
   Book.fetchOne = (book_id, callback) => {
     $.get(`${__API_URL__}/api/v1/books/${book_id}`)
-      .then()
+      .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
   };
