@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Error Handlebars Template -->
     <script id="error-template" type="text/x-handlebarse-template">
       <h3>Something bad happened.</h3>
@@ -41,6 +42,25 @@
       <div class="header-content">
         <a href="/"><img src="http://www.bootcamps.in/wp-content/uploads/2015/06/code-fellows-shield.png" alt="logo"></a>
         <h1>Code Fellows Books</h1>
+      </div>
+      <div class='containerMenu'>
+        <div class='wrapper'>
+          <div class='visible'>
+            <ul class='hamburger'>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class='hidden'>
+            <ul>
+              <li class='box'>Home</li>
+              <li class='box'>New</li>
+              <li class='box'>About</li>
+              <li class='box'><a class='link' href="http://twitter.com" target="_blank">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
     <!-- Main -->
@@ -79,6 +99,7 @@
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
     <script src="scripts/views/view.js"></script>
-    <script src="scripts/views/routesw.js"></script>
+    <script src="scripts/views/routes.js"></script>
+    <script src="scripts/views/menu.js"></script>
   </body>
 </html>

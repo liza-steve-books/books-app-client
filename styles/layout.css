@@ -4,8 +4,9 @@
 
 header img {
   max-width: 10%;
-  display: inline-block;
+  float: right;
   padding-left: 5%;
+  padding-top: 2%;
 }
 
 header h1 {
@@ -17,6 +18,75 @@ header h1 {
   left: 0;
   right: 0;
   width: 50%;
-  height: 30%;
   margin: auto;
+  padding-top: 5%;
+}
+
+/* ham menu */ 
+
+.wrapper {
+  margin: auto;
+  display: inline-block;
+  position: relative;
+  transition: all 133ms cubic-bezier(0.5, 0, 0, 1);
+  padding-top: 8%;
+}
+
+ul {
+  list-style: none;
+}
+
+.hamburger {
+  margin: 0;
+  padding: 6px 6px 7px 6px;
+  position: relative;
+  transition: all 133ms cubic-bezier(0.5, 0, 0, 1);
+}
+
+.hamburger li {
+  width: 24px;
+  height: 4px;
+  background: #ddd;
+  color: #ddd;
+  margin: 2px 0 0;
+  padding: 0;
+  transform: translate3d(0, 0, 0);
+  transition: all 133ms cubic-bezier(0.5, 0, 0, 1);
+}
+
+.hidden {
+  position: absolute;
+  opacity: 0;
+  transition: all 333ms cubic-bezier(0.5, 0, 0, 1);
+}
+
+.box {
+  width: 10vw;
+  padding: 26%;
+  margin: 11%;
+  height: 30px;
+  background: #444;
+  transition: all 533ms cubic-bezier(0.5, 0, 0, 1); 
+}
+
+.checked {
+  background: #444;
+}
+.checked .hidden {
+  opacity: 1;
+  transform: translateY(5px);
+}
+.checked .box:last-child {
+  transform: translateY(5px);
+}
+
+.link {
+  width: 24px;
+  height: 4px;
+  color: #ddd;
+  margin: 2px 0 0;
+  padding: 0;
+  transform: translate3d(0, 0, 0);
+  transition: all 133ms cubic-bezier(0.5, 0, 0, 1);
+  text-decoration: none;
 }
