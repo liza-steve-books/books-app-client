@@ -8,31 +8,34 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Error Handlebars Template -->
     <script id="error-template" type="text/x-handlebarse-template">
       <h3>Something bad happened.</h3>
       <p>{{status}}: {{statusTest}}</p>
     </script>
     <!-- Book Handlebars Template -->
-    <script id="book-template" type="text/x-handlebars-template">
-      <li class="book-item">
+    <script id="book-list-template" type="text/x-handlebars-template">
+      <li class="book-items">
         <div class="book-container">
-          <img src={{image_url}}>
-          <div>
-            <h2>{{title}}</h2>
+          <img class="bookimg" src={{image_url}}>
+          <div class="bookstyles">
+            <h2 class="booktitle">{{title}}</h2>
             <p>{{author}}</p>
-            <button class="detail" data-bookid="{{book_id}}">Details</button>
+            <button data-bookid="{{book_id}}"><a href="/books/{{book_id}}">Details</a></button>
           </div>
         </div>
       </li>
     </script>
     <!-- Details Handlebars Template -->
-    <script id="details-template" type="text/x-handlebars-template">
-      <h2>{{title}}</h2>
-      <p>{{author}}</p>
-      <p>{{isbn}}</p>
-      <img href="{{image_url">
-      <p>{{description}}</p>
+    <script id="book-detail-template" type="text/x-handlebars-template">
+      <div>
+        <h3>{{title}}</h3>
+        <p>{{author}}</p>
+        <p>{{isbn}}</p>
+        <img src="{{image_url}}">
+        <p>{{description}}</p>
+      </div>
     </script>
   </head>
   <body>
@@ -41,6 +44,23 @@
       <div class="header-content">
         <a href="/"><img src="http://www.bootcamps.in/wp-content/uploads/2015/06/code-fellows-shield.png" alt="logo"></a>
         <h1>Code Fellows Books</h1>
+      </div>
+      <div class='containerMenu'>
+        <div class='wrapper'>
+          <div class='visible'>
+            <ul class='hamburger'>
+              <li class='hamburgerli'></li>
+              <li class='hamburgerli'></li>
+              <li class='hamburgerli'></li>
+            </ul>
+          </div>
+          <div class='hidden'>
+            <ul class='box'>
+              <li><a class='boxli' href="/">Home</a></li>
+              <li><a class='boxli' href="/new">New</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
     <!-- Main -->
@@ -52,13 +72,36 @@
       </section>
       <!-- Book View Container -->
       <section class="book-view container">
-        <h2 class="view-title">My Books</h2>
+        <h2 class="view-title">Available Books:</h2>
         <section class="book-list-section">
-          <dt>Total Books:</dt> <dd class="book-count"></dd>
           <ul id="book-list"></ul>
+          <div class="book-total"><dt>Total Books:</dt> <dd class="book-count"></dd></div>
         </section>
       </section>
+      <!-- Book Detail View Container -->
       <section class="detail-view container">
+        <h2 class="view-title">Detail View</h2>
+        <section id="detail-book"></section>
+      </section>
+      <!-- New Book View Container -->
+      <section class="new-book-view container">
+        <h2 class="view-title">Add New Book</h2>
+        <form action="#" id="new-form">
+          <label>
+            <input type="text" id="book-title" placeholder="Book" required>
+          </label>
+          <label>
+            <input type="text" id="book-author" placeholder="Author Name" required>
+          </label>
+          <label>
+            <input type="text" id="image_url" placeholder="Image URL" required>
+          </label>
+          <label>
+            <input type="text" id="isbn" placeholder="ISBN" required>
+          </label>
+          <textarea id="description-body" rows="8" cols="40" required></textarea>
+          <button type="submit">Submit and return to the home page</button>
+        </form>
       </section>
     </main>
     <footer>
@@ -71,6 +114,7 @@
         </ul>
       </aside>
     </footer>
+    <!-- External CDN Resources -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
@@ -78,7 +122,7 @@
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
-    <script src="scripts/views/view.js"></script>
-    <script src="scripts/views/routesw.js"></script>
+    <script src="scripts/views/routes.js"></script>
+    <script src="scripts/views/menu.js"></script>
   </body>
 </html>

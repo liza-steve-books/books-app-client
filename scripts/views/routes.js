@@ -1,8 +1,14 @@
-'use strict'
+'use strict';
 
-page('/one', ctx => initOne(ctx))
-page('/two', initTwo)
-page('/three/:letter', initThree)
-// page('/books/:id', showSomeDetail)
+page('/', () => app.Book.fetchAll(app.bookView.initIndexPage));
+page('/books/:id', ctx => app.Book.fetchOne(ctx.params.id, app.bookView.initDetailPage));
+page('/new', () => app.bookView.initAddNewPage());
 
-page()
+// Catch all to take user back to home page
+// Doesn't work currently
+page('*', () => {
+  console.log('Detected unknown path.');
+  app.Book.fetchAll(app.bookView.initIndexPage);
+});
+
+page();
