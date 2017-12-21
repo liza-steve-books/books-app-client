@@ -43,14 +43,26 @@ var app = app || {};
     module.Book.all.map(book => $('#detail-book').append(book.toHtml('#book-detail-template')));
   };
 
-  // bookView.initAddNewPage = () => {
-  //   $('.container').hide();
-  //   // Show the showSelector if one was provided
-  //   $('.new-book-view').show();
+  bookView.initAddNewPage = () => {
+    $('.container').hide();
+    // Show the showSelector if one was provided
+    $('.new-book-view').show();
 
-  //   // Setup the form submit handler
-  //   //module.bookView.prepareFormHandler();
-  // };
+    // Setup the form submit handler
+    $('#new-form').on('submit', bookView.submit);
+  };
+
+  bookView.submit = (e) => {
+    e.preventDefault();
+    let book = new app.Book({
+      author: $('#book-author').val(),
+      title: $('#book-title').val(),
+      isbn: $('#isbn').val(),
+      image_url: $('#image-url').val(),
+      description: $('#description-body').val()
+    });
+    book.insertBook(bookView.initIndexPage);
+  };
 
   module.bookView=bookView;
 })(app);

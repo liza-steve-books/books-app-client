@@ -21,6 +21,13 @@ var app = app || {};
     return template(this);
   };
 
+  Book.prototype.insertBook = function(callback) {
+    $.post(`${__API_URL__}/api/v1/books`, this)
+      .then(console.log)
+      .then(callback)
+      .catch(errorCallback);      
+  };
+
   // Function to create/sort all books from returned database rows objects
   Book.loadAll = dbRows => {
     // Sort database rows by title case-insensitive and create Books
