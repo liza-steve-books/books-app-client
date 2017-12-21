@@ -18,9 +18,9 @@
     <script id="book-template" type="text/x-handlebars-template">
       <li class="book-item">
         <div class="book-container">
-          <img src={{image_url}}>
-          <div>
-            <h2>{{title}}</h2>
+          <img class="bookimg" src={{image_url}}>
+          <div class="bookstyles">
+          <h2 class="booktitle">{{title}}</h2>
             <p>{{author}}</p>
             <button class="detail" data-bookid="{{book_id}}">Details</button>
           </div>
@@ -72,10 +72,10 @@
       </section>
       <!-- Book View Container -->
       <section class="book-view container">
-        <h2 class="view-title">My Books</h2>
+        <h2 class="view-title">Available Books</h2>
         <section class="book-list-section">
-          <dt>Total Books:</dt> <dd class="book-count"></dd>
           <ul id="book-list"></ul>
+          <div class="book-total"><dt>Total Books:</dt> <dd class="book-count"></dd></div>
         </section>
       </section>
       <section class="detail-view container">

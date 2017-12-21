@@ -5,7 +5,7 @@
 header img {
   max-width: 10%;
   float: right;
-  padding-left: 5%;
+  padding-right: 5%;
   padding-top: 2%;
 }
 
@@ -20,6 +20,7 @@ header h1 {
   width: 50%;
   margin: auto;
   padding-top: 5%;
+  text-shadow: 2px 2px 8px black;
 }
 
 /* ham menu */ 
@@ -89,4 +90,49 @@ ul {
   transform: translate3d(0, 0, 0);
   transition: all 133ms cubic-bezier(0.5, 0, 0, 1);
   text-decoration: none;
+}
+
+/* book styles */
+.bookstyles {
+  background-color: #444;
+  position: relative;
+  text-align: center;
+  font-size: 4vw;
+  margin: 0;
+  padding-top: 3%;
+  text-shadow: 1px 1px 3px #202020;
+}
+
+.booktitle {
+  font-style: italic;
+  text-shadow: 1px 1px 3px #202020;
+}
+
+.detail {
+  padding: 2% 10% 2% 10%;
+  font-weight: bold;
+  font-size: 3vw;
+}
+
+.book-container {
+  margin: 0;
+  padding: 0;
+  border: 20px solid #444;
+}
+
+.view-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 5vw;
+  text-shadow: 2px 2px 8px black;
+  padding: 4%;
+}
+
+/* book count */
+.book-total {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 3%;
+  color: #444;
+  font-weight: bold;
 }
