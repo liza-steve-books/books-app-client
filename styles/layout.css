@@ -125,6 +125,10 @@ ul {
   padding: 4%;
 }
 
+.bookimg {
+  box-shadow: 3px -2px 4px 3px black;
+}
+
 /* book count */
 .book-total {
   text-align: center;

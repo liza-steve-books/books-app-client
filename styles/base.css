@@ -18,6 +18,7 @@ header {
   padding: 1.5vw 0;
   width: 100%;
   top: 0;
+  box-shadow: 3px 0 4px 5px #202020;
 }
 
 footer {
