@@ -84,10 +84,26 @@
         <h2 class="view-title">Detail View</h2>
         <section id="detail-book"></section>
       </section>
-      <!-- <section class="new-book-view">
+      <!-- New Book View Container -->
+      <section class="new-book-view container">
         <h2 class="view-title">Add New Book</h2>
-        <form action=""></form>
-      </section> -->
+        <form action="#" id="new-form">
+          <label>
+            <input type="text" id="book-title" placeholder="Book" required>
+          </label>
+          <label>
+            <input type="text" id="book-author" placeholder="Author Name" required>
+          </label>
+          <label>
+            <input type="text" id="image-url" placeholder="Image URL" required>
+          </label>
+          <label>
+            <input type="text" id="isbn" placeholder="ISBN" required>
+          </label>
+          <textarea id="description-body" rows="8" cols="40" required></textarea>
+          <button type="submit">Submit and return to the home page</button>
+        </form>
+      </section>
     </main>
     <footer>
       <aside class="social-links">
