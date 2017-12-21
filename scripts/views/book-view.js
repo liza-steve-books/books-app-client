@@ -16,10 +16,11 @@ var app = app || {};
   // };
 
   bookView.initIndexPage = () => {
+    console.log('initIndexPage');
     // Hide the hideSelector if one was provided
     $('.container').hide();
     // Empty out the emptySelector if one was provided
-    $('.book-vew').empty();
+    $('#book-list').empty();
     // Show the showSelector if one was provided
     $('.book-view').show();
 
@@ -34,12 +35,12 @@ var app = app || {};
     // Hide the hideSelector if one was provided
     $('.container').hide();
     // Empty out the emptySelector if one was provided
-    $('.detail-vew').empty();
+    $('#detail-book').empty();
     // Show the showSelector if one was provided
     $('.detail-view').show();
 
     // Append the book to the detail section inside the book list section
-    module.Book.all.map(book => $('#detailed-book').append(book.toHtml("#book-detail-template")));
+    module.Book.all.map(book => $('#detail-book').append(book.toHtml('#book-detail-template')));
   };
 
   // bookView.initAddNewPage = () => {
