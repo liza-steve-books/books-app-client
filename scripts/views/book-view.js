@@ -44,10 +44,12 @@ var app = app || {};
   };
 
   // bookView.initAddNewPage = () => {
-  //   module.bookView.hideEmptyShow('.container', null, '.new-book-view');
+  //   $('.container').hide();
+  //   // Show the showSelector if one was provided
+  //   $('.new-book-view').show();
 
   //   // Setup the form submit handler
-  //   module.bookView.prepareFormHandler();
+  //   //module.bookView.prepareFormHandler();
   // };
 
   module.bookView=bookView;
