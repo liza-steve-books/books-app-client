@@ -58,10 +58,10 @@ var app = app || {};
       author: $('#book-author').val(),
       title: $('#book-title').val(),
       isbn: $('#isbn').val(),
-      image_url: $('#image-url').val(),
+      image_url: $('#image_url').val(),
       description: $('#description-body').val()
     });
-    book.insertBook(bookView.initIndexPage);
+    book.insertBook();
   };
 
   module.bookView=bookView;
