@@ -44,11 +44,10 @@ ul {
   transition: all 133ms cubic-bezier(0.5, 0, 0, 1);
 }
 
-.hamburger li {
+.hamburgerli {
   width: 24px;
   height: 4px;
   background: #ddd;
-  color: #ddd;
   margin: 2px 0 0;
   padding: 0;
   transform: translate3d(0, 0, 0);
@@ -62,12 +61,20 @@ ul {
 }
 
 .box {
-  width: 10vw;
-  padding: 26%;
-  margin: 11%;
+  padding: 10% 50% 60% 10%;
+  margin: 0;
   height: 30px;
   background: #444;
   transition: all 533ms cubic-bezier(0.5, 0, 0, 1); 
+  border: 5px solid black;
+  box-shadow: inset 0 0 10px #000000;
+}
+
+.boxli {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 5vw;
+  text-shadow: 2px 2px 8px black;
 }
 
 .checked {
@@ -79,17 +86,6 @@ ul {
 }
 .checked .box:last-child {
   transform: translateY(5px);
-}
-
-.link {
-  width: 24px;
-  height: 4px;
-  color: #ddd;
-  margin: 2px 0 0;
-  padding: 0;
-  transform: translate3d(0, 0, 0);
-  transition: all 133ms cubic-bezier(0.5, 0, 0, 1);
-  text-decoration: none;
 }
 
 /* book styles */
@@ -118,6 +114,7 @@ ul {
   margin: 0;
   padding: 0;
   border: 20px solid #444;
+  box-shadow: inset 0 0 10px #000000;
 }
 
 .view-title {
