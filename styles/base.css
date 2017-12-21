@@ -1,6 +1,6 @@
 body {
   background-color: #999;
-  font-family: 'helvetica';
+  font-family: 'Roboto', sans-serif;
   color: #ddd;
   width: 100%;
   position: relative;
@@ -13,11 +13,12 @@ main {
 
 header {
   position: fixed;
-  z-index: 99;
+  z-index: 1;
   background-color: #444;
   padding: 1.5vw 0;
   width: 100%;
   top: 0;
+  box-shadow: 3px 0 4px 5px #202020;
 }
 
 footer {

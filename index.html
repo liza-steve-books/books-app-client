@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Error Handlebars Template -->
     <script id="error-template" type="text/x-handlebarse-template">
       <h3>Something bad happened.</h3>
@@ -17,9 +18,9 @@
     <script id="book-list-template" type="text/x-handlebars-template">
       <li class="book-items">
         <div class="book-container">
-          <img src={{image_url}}>
-          <div>
-            <h3>{{title}}</h3>
+          <img class="bookimg" src={{image_url}}>
+          <div class="bookstyles">
+            <h2 class="booktitle">{{title}}</h2>
             <p>{{author}}</p>
             <button data-bookid="{{book_id}}"><a href="/books/{{book_id}}">Details</a></button>
           </div>
@@ -44,6 +45,24 @@
         <a href="/"><img src="http://www.bootcamps.in/wp-content/uploads/2015/06/code-fellows-shield.png" alt="logo"></a>
         <h1>Code Fellows Books</h1>
       </div>
+      <div class='containerMenu'>
+        <div class='wrapper'>
+          <div class='visible'>
+            <ul class='hamburger'>
+              <li class='hamburgerli'></li>
+              <li class='hamburgerli'></li>
+              <li class='hamburgerli'></li>
+            </ul>
+          </div>
+          <div class='hidden'>
+            <ul class='box'>
+              <li class='boxli'>Home</li>
+              <li class='boxli'>New</li>
+              <li><a class='boxli' href="http://twitter.com" target="_blank">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </header>
     <!-- Main -->
     <main>
@@ -54,10 +73,10 @@
       </section>
       <!-- Book View Container -->
       <section class="book-view container">
-        <h2 class="view-title">My Books</h2>
+        <h2 class="view-title">Available Books:</h2>
         <section class="book-list-section">
-          <dt>Total Books:</dt> <dd class="book-count"></dd>
           <ul id="book-list"></ul>
+          <div class="book-total"><dt>Total Books:</dt> <dd class="book-count"></dd></div>
         </section>
       </section>
       <!-- Book Detail View Container -->
@@ -88,6 +107,8 @@
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/views/view.js"></script>
     <script src="scripts/views/routes.js"></script>
+    <script src="scripts/views/menu.js"></script>
   </body>
 </html>
