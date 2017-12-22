@@ -21,7 +21,7 @@ var app = app || {};
     return template(this);
   };
 
-  Book.prototype.insertBook = function(callback) {
+  Book.prototype.insertBook = function() {
     $.post(`${__API_URL__}/api/v1/books`, this)
       .then(console.log)
       .then(() => page('/'))
@@ -52,13 +52,17 @@ var app = app || {};
       .catch(errorCallback);
   };
 
-  Book.delete = () => {
+  Book.delete = function() {
+    console.log($(this).attr('data-bookid'));
+    let book_id = $(this).attr('data-bookid');
     $.ajax({
-      url:'http://localhost:3000/api/v1/books/10',
+      url: `${__API_URL__}/api/v1/books/${book_id}`,
       method: 'DELETE'
     })
       .then(console.log)
+      .then(() => page('/'))
       .catch(console.error);
+  };
   };
 
   module.Book=Book;

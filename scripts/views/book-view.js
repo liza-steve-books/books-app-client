@@ -42,7 +42,7 @@ var app = app || {};
     // Append the book to the detail section inside the book list section
     module.Book.all.map(book => $('#detail-book').append(book.toHtml('#book-detail-template')));
     // Put event handler on delete button
-    // $('.book-container')
+    $('.detail-container').on('click', '#deletebutton', module.Book.delete);
   };
 
   bookView.initAddNewPage = () => {
