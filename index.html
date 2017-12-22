@@ -29,12 +29,14 @@
     </script>
     <!-- Details Handlebars Template -->
     <script id="book-detail-template" type="text/x-handlebars-template">
-      <div>
+      <div class="detail-container">
         <h3>{{title}}</h3>
         <p>{{author}}</p>
         <p>{{isbn}}</p>
         <img src="{{image_url}}">
         <p>{{description}}</p>
+        <button id="deletebutton" type="button" data-bookid="{{book_id}}">Delete</button>
+        <button id="updatebutton" type="button" data-bookid="{{book_id}}">Update</button>
       </div>
     </script>
   </head>
@@ -100,6 +102,26 @@
             <input type="text" id="isbn" placeholder="ISBN" required>
           </label>
           <textarea id="description-body" rows="8" cols="40" required></textarea>
+          <button type="submit">Submit and return to the home page</button>
+        </form>
+      </section>
+      <!-- Update Book View Container -->
+      <section class="update-book-view container">
+        <h2 class="view-title">Update Book</h2>
+        <form action="#" id="update-form">
+          <label>
+            <input type="text" id="update-book-title" placeholder="Book" required>
+          </label>
+          <label>
+            <input type="text" id="update-book-author" placeholder="Author Name" required>
+          </label>
+          <label>
+            <input type="text" id="update-image_url" placeholder="Image URL" required>
+          </label>
+          <label>
+            <input type="text" id="update-isbn" placeholder="ISBN" required>
+          </label>
+          <textarea id="update-description-body" rows="8" cols="40" required></textarea>
           <button type="submit">Submit and return to the home page</button>
         </form>
       </section>

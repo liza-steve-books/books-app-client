@@ -41,6 +41,10 @@ var app = app || {};
 
     // Append the book to the detail section inside the book list section
     module.Book.all.map(book => $('#detail-book').append(book.toHtml('#book-detail-template')));
+    // Put event handler on delete button
+    $('.detail-container').on('click', '#deletebutton', module.Book.delete);
+    // Put event handler on update button
+    $('.detail-container').on('click', '#updatebutton', module.Book.startUpdate);
   };
 
   bookView.initAddNewPage = () => {
@@ -50,6 +54,27 @@ var app = app || {};
 
     // Setup the form submit handler
     $('#new-form').on('submit', bookView.submit);
+  };
+
+  bookView.initUpdatePage = () => {
+    $('.container').hide();
+    // Show the showSelector if one was provided
+    $('.update-book-view').show();
+
+    // Setup the form submit handler
+    $('#update-form').on('submit', bookView.update);
+  };
+
+  bookView.update = function () {
+    let book_id = $(this).attr('data-bookid');
+    // let book = new app.Book({
+    //   author: $('#book-author').val(),
+    //   title: $('#book-title').val(),
+    //   isbn: $('#isbn').val(),
+    //   image_url: $('#image_url').val(),
+    //   description: $('#description-body').val()
+    // });
+    // book.insertBook();
   };
 
   bookView.submit = (e) => {
