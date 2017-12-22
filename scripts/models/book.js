@@ -64,5 +64,20 @@ var app = app || {};
       .catch(console.error);
   };
 
+  Book.update = function () {
+    let book_id = $(this).attr('data-bookid');
+    console.log(book_id);
+    $.ajax({
+      url: `${__API_URL__}/api/v1/books/${book_id}`,
+      method: 'PUT',
+      data: {
+        author: 'liza',
+        title: 'steve',
+        isbn: '21312',
+        image_url: 'url',
+        description: 'some shit'
+      }}).then(console.log);
+  };
+
   module.Book=Book;
 })(app);
