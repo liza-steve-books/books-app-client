@@ -53,8 +53,8 @@ var app = app || {};
   };
 
   Book.delete = function() {
-    console.log($(this).attr('data-bookid'));
     let book_id = $(this).attr('data-bookid');
+    console.log(book_id);
     $.ajax({
       url: `${__API_URL__}/api/v1/books/${book_id}`,
       method: 'DELETE'
@@ -62,7 +62,6 @@ var app = app || {};
       .then(console.log)
       .then(() => page('/'))
       .catch(console.error);
-  };
   };
 
   module.Book=Book;
