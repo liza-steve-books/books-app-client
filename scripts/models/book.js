@@ -3,8 +3,8 @@
 var app = app || {};
 
 (function (module){
-  var __API_URL__ = 'https://lo-sc-booklist.herokuapp.com';
-  //var __API_URL__ = 'http://localhost:3000';
+  //var __API_URL__ = 'https://lo-sc-booklist.herokuapp.com';
+  var __API_URL__ = 'http://localhost:3000';
   Book.all = [];
 
   function Book(rawDataObj) {
@@ -51,6 +51,15 @@ var app = app || {};
       .then(callback)
       .catch(errorCallback);
   };
-  //$.get('http://localhost:3000/api/v1/books/9').then(console.log).catch(console.error)
+
+  Book.delete = () => {
+    $.ajax({
+      url:'http://localhost:3000/api/v1/books/10',
+      method: 'DELETE'
+    })
+      .then(console.log)
+      .catch(console.error);
+  };
+
   module.Book=Book;
 })(app);
