@@ -64,6 +64,18 @@ var app = app || {};
       .catch(console.error);
   };
 
+  Book.startUpdate = function() {
+    let book_id = $(this).attr('data-bookid');
+    console.log(book_id);
+    $.ajax({
+      url: `${__API_URL__}/api/v1/books/${book_id}`,
+      method: 'GET'
+    })
+      .then(console.log)
+      .then(() => page('/'))
+      .catch(console.error);
+  };
+
   Book.update = function () {
     let book_id = $(this).attr('data-bookid');
     console.log(book_id);
