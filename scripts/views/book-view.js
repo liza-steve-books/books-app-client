@@ -42,9 +42,12 @@ var app = app || {};
     // Append the book to the detail section inside the book list section
     module.Book.all.map(book => $('#detail-book').append(book.toHtml('#book-detail-template')));
     // Put event handler on delete button
-    $('.detail-container').on('click', '#deletebutton', module.Book.delete);
-    // Put event handler on update button
-    $('.detail-container').on('click', '#updatebutton', module.Book.startUpdate);
+    $('.detail-container').on('click', '#delete-button', module.Book.destroy);
+    // Make a pages call to initiate an update
+    $('.detail-container').on('click', '#update-button',
+      function () {
+        page(`/books/${$(this).data('id')}/update`)
+      });
   };
 
   bookView.initAddNewPage = () => {
@@ -56,25 +59,33 @@ var app = app || {};
     $('#new-form').on('submit', bookView.submit);
   };
 
-  bookView.initUpdatePage = () => {
+  bookView.initUpdateFormPage = (id) => {
+    console.log('initUpdateFormPage');
     $('.container').hide();
+    // Populate form with the goods
+    let book = app.Book.all[0];
+    $('#update-book-title').val(book.title);
+    $('#update-book-author').val(book.author);
+    $('#update-image_url').val(book.image_url);
+    $('#update-isbn').val(book.isbn);
+    $('#update-description-body').val(book.description);
     // Show the showSelector if one was provided
     $('.update-book-view').show();
 
     // Setup the form submit handler
-    $('#update-form').on('submit', bookView.update);
-  };
-
-  bookView.update = function () {
-    let book_id = $(this).attr('data-bookid');
-    // let book = new app.Book({
-    //   author: $('#book-author').val(),
-    //   title: $('#book-title').val(),
-    //   isbn: $('#isbn').val(),
-    //   image_url: $('#image_url').val(),
-    //   description: $('#description-body').val()
-    // });
-    // book.insertBook();
+    $('#update-form').on('submit', function (e) {
+      e.preventDefault();
+      let updatedBook = {
+        book_id: id,
+        title: $('#update-book-title').val(),
+        author: $('#update-book-author').val(),
+        image_url: $('#update-image_url').val(),
+        isbn: $('#update-isbn').val(),
+        description: $('#update-description-body').val()
+      };
+      // Do it
+      app.Book.update(updatedBook);
+    });
   };
 
   bookView.submit = (e) => {
