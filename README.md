@@ -67,11 +67,12 @@ Thu Dec 21 11:33:56 2017 -0800: Enabled the /new route and added anchor links in
 Fri Dec 22 08:57:00 2017 -0800: Added a button to the delete view.
 Fri Dec 22 09:30:28 2017 -0800: Added ajax function to delete book
 Fri Dec 22 11:34:42 2017 -0800: Implemented the event delete handler
-Fri Dec 22 11:47:24 2017 -0800: Moved a console log around
-Fri Dec 22 12:16:53 2017 -0800: Added a button.
-Fri Dec 22 12:33:39 2017 -0800: Added correct syntax call for put/update, but it still needs some work.
-Fri Dec 22 13:28:51 2017 -0800: Added update form
-Fri Dec 22 13:35:59 2017 -0800: Added Book.startUpdate
+Fri Dec 22 11:47:24 2017 -0800: Moved a console log around  
+Fri Dec 22 12:16:53 2017 -0800: Added a button.  
+Fri Dec 22 12:33:39 2017 -0800: Added correct syntax call for put/update, but it still needs some work.  
+Fri Dec 22 13:28:51 2017 -0800: Added update form  
+Fri Dec 22 13:35:59 2017 -0800: Added Book.startUpdate  
+Sat Dec 23 13:33:13 2017 -0800: Got the update mechanism working, although there is still one small bug.  
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
