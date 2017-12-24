@@ -22,7 +22,7 @@
           <div class="bookstyles">
             <h2 class="booktitle">{{title}}</h2>
             <p>{{author}}</p>
-            <button data-bookid="{{book_id}}"><a href="/books/{{book_id}}">Details</a></button>
+            <button data-id="{{book_id}}"><a href="/books/{{book_id}}">Details</a></button>
           </div>
         </div>
       </li>
@@ -35,8 +35,8 @@
         <p>{{isbn}}</p>
         <img src="{{image_url}}">
         <p>{{description}}</p>
-        <button id="deletebutton" type="button" data-bookid="{{book_id}}">Delete</button>
-        <button id="updatebutton" type="button" data-bookid="{{book_id}}">Update</button>
+        <button id="delete-button" type="button" data-id="{{book_id}}">Delete</button>
+        <button id="update-button" type="button" data-id="{{book_id}}">Update</button>
       </div>
     </script>
   </head>
